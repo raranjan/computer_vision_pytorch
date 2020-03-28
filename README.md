@@ -1,2 +1,2 @@
-# raks.ranjan-gmail.com
-computer_vision_pytorch
+# Neural Netowrk and Computer Vision with Pytorch
+My notes while studying the computer vision
