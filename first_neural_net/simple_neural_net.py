@@ -64,7 +64,7 @@ def data_loaders():
 
 def train(net, train_loader):
     for epoch in range(EPOCHS):
-        for batch_idx, (input, label) in enumerate(train_loader, 0):
+        for batch_idx, (input, label) in enumerate(train_loader):
             input = input.to(device)
             label = label.to(device)
             optimizer.zero_grad()
@@ -77,8 +77,6 @@ def train(net, train_loader):
             # Print statistics
             if batch_idx%50 == 0:
                 logger.info('[Epoch:%2d, Batch:%5d] loss: %.3f' % (epoch + 1, batch_idx + 1, loss.item()))
-
-    return net
 
 
 def test(net, test_loader):
@@ -108,5 +106,5 @@ if __name__ == '__main__':
     net.to(device)
 
     train_loader, test_loader = data_loaders()
-    net = train(net, train_loader) # Train the model
+    train(net, train_loader) # Train the model
     test(net, test_loader) # Test the model on test dataset
